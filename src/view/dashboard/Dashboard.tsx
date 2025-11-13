@@ -19,8 +19,8 @@ import {
   ModalContentWrapper,
   SocialButtonsWrapper,
 } from './Dashboard.style';
-
-import { FaMapMarkerAlt, FaPhoneAlt, FaClock } from 'react-icons/fa';
+import logo from '../../layout/image/foto.jpeg';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import WhatsApp from '../../layout/button/WhatsApp';
 import Instagram from '../../layout/button/Instagram';
 
@@ -34,6 +34,13 @@ function Dashboard() {
   const handleClose = () => {
     setOpenModal(null);
   };
+
+  const menuItems = [
+    { key: 'modal1', label: 'Projetos' },
+    { key: 'modal2', label: 'Curriculo' },
+    { key: 'modal3', label: 'Historia' },
+    { key: 'modal4', label: 'Contato' },
+  ];
 
 
   return (
@@ -85,8 +92,7 @@ function Dashboard() {
             <ContactItem>
               <FaMapMarkerAlt size={16} />
               <div>
-                Rua Junqueira Freire, 261<br />
-                Liberdade - São Paulo
+                São Paulo
               </div>
             </ContactItem>
 
@@ -98,8 +104,8 @@ function Dashboard() {
 
             {/* Horário */}
             <ContactItem>
-              <FaClock size={16} />
-              <div>Seg a Sex: 9h às 18h</div>
+              <FaEnvelope size={16} />
+              <div>kevin_ramos1@hotmail.com</div>
             </ContactItem>
           </div>
 
