@@ -18,11 +18,14 @@ import {
   GoogleMapsFrame,
   ModalContentWrapper,
   SocialButtonsWrapper,
+  Circles,
 } from './Dashboard.style';
 import logo from '../../layout/image/foto1.jpeg';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import WhatsApp from '../../layout/button/WhatsApp';
 import Instagram from '../../layout/button/Instagram';
+import Title from 'antd/es/skeleton/Title';
+import { Typography } from 'antd';
 
 function Dashboard() {
   const [openModal, setOpenModal] = useState<string | null>(null);
@@ -44,12 +47,22 @@ function Dashboard() {
 
   return (
     <DashboardWrapper>
+      <Circles>
+        {Array.from({ length: 10 }).map((_, i) => (
+          <li key={i}></li>
+        ))}
+      </Circles>
       {/* Header */}
       <HeaderContainer>
         <LeftContainer>
-          <LogoContainer>
-            <img src={logo} alt="Kevin Amaral" />
-          </LogoContainer>
+          <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
+            <LogoContainer>
+              <img src={logo} alt="Kevin Amaral" />
+            </LogoContainer>
+            <Typography.Title level={3} style={{ color: 'white', marginLeft: 70 }}>
+              Kevin Amaral
+            </Typography.Title>
+          </div>
         </LeftContainer>
 
         <RightContainer>
