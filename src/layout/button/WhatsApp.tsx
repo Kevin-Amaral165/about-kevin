@@ -8,7 +8,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import SocialButton from './Social';
 
 const WhatsApp: React.FC = () => {
-  const phoneNumber = '5519993590707';
+  const phoneNumber = '5519992128375';
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
 
   return (

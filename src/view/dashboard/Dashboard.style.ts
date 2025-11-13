@@ -19,13 +19,17 @@ export const HeaderContainer = styled.div`
 
 export const LogoContainer = styled.div`
   height: 90px;
+  width: 90px;
+  margin-left: 50px;
 
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 50%;
   }
 `;
+
 
 export const LeftContainer = styled.div`
   width: 65%;

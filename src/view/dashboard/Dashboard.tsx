@@ -19,7 +19,7 @@ import {
   ModalContentWrapper,
   SocialButtonsWrapper,
 } from './Dashboard.style';
-import logo from '../../layout/image/foto.jpeg';
+import logo from '../../layout/image/foto1.jpeg';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import WhatsApp from '../../layout/button/WhatsApp';
 import Instagram from '../../layout/button/Instagram';
@@ -37,8 +37,7 @@ function Dashboard() {
 
   const menuItems = [
     { key: 'modal1', label: 'Projetos' },
-    { key: 'modal2', label: 'Curriculo' },
-    { key: 'modal3', label: 'Historia' },
+    { key: 'modal2', label: 'Sobre' },
     { key: 'modal4', label: 'Contato' },
   ];
 
@@ -125,7 +124,6 @@ function Dashboard() {
         </SocialButtonsWrapper>
       </FooterContainer>
 
-      {/* Modais */}
       <Modal open={openModal === 'modal1'} onClose={handleClose} title="Quem Somos">
         <ModalContentWrapper>
           conteudo
@@ -133,10 +131,6 @@ function Dashboard() {
       </Modal>
 
       <Modal open={openModal === 'modal2'} onClose={handleClose} title="Obras Realizadas">
-        conteudo
-      </Modal>
-
-      <Modal open={openModal === 'modal3'} onClose={handleClose} title="Tijolos Ecológicos">
         conteudo
       </Modal>
 
