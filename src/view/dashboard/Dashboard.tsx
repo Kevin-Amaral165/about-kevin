@@ -26,6 +26,8 @@ import WhatsApp from '../../layout/button/WhatsApp';
 import Instagram from '../../layout/button/Instagram';
 import Title from 'antd/es/skeleton/Title';
 import { Typography } from 'antd';
+import GitHub from '../../layout/button/Github';
+import LeftPanel from './leftPanel/LeftPanel';
 
 function Dashboard() {
   const [openModal, setOpenModal] = useState<string | null>(null);
@@ -75,9 +77,10 @@ function Dashboard() {
       </HeaderContainer>
 
       <MainContent>
-        {/* Texto */}
         <LeftContent>
-          conteudo
+          <LeftPanel onCardClick={(key) => {
+            setOpenModal('modal1');
+          }} />
         </LeftContent>
 
         {/* RIGTH PAINEL */}
@@ -92,15 +95,14 @@ function Dashboard() {
 
       <FooterContainer style={{ padding: '10px 20px' }}>
         <FooterInfo>
-          <h4>Kevin</h4>
+          <h4>Kevin Amaral</h4>
           <p>
-            Conteudo
+            HTTML, CSS, JavaScript, React, Node.js.
           </p>
         </FooterInfo>
 
         <FooterContact>
           <div>
-            {/* Endereço */}
             <ContactItem>
               <FaMapMarkerAlt size={16} />
               <div>
@@ -108,20 +110,17 @@ function Dashboard() {
               </div>
             </ContactItem>
 
-            {/* Telefone */}
             <ContactItem>
               <FaPhoneAlt size={16} />
               <div>(19) 99212-8375</div>
             </ContactItem>
 
-            {/* Horário */}
             <ContactItem>
               <FaEnvelope size={16} />
               <div>kevin_ramos1@hotmail.com</div>
             </ContactItem>
           </div>
 
-          {/* Mapa Google Embed */}
           <GoogleMapsFrame
             title="Mapa Google"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0043430247033!2d-46.63201968502146!3d-23.531653384693846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5854c34b3c99%3A0x528ad15dc7c0ea85!2sR.%20Junqueira%20Freire%2C%20261%20-%20Liberdade%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001503-000!5e0!3m2!1spt-BR!2sbr!4v1693841910912!5m2!1spt-BR!2sbr"
@@ -134,6 +133,7 @@ function Dashboard() {
         <SocialButtonsWrapper>
           <WhatsApp />
           <Instagram />
+          <GitHub />
         </SocialButtonsWrapper>
       </FooterContainer>
 
