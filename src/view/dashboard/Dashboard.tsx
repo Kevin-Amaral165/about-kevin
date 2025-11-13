@@ -28,6 +28,7 @@ import Title from 'antd/es/skeleton/Title';
 import { Typography } from 'antd';
 import GitHub from '../../layout/button/Github';
 import LeftPanel from './leftPanel/LeftPanel';
+import RightPanel from '../rightPanel/RightPanel';
 
 function Dashboard() {
   const [openModal, setOpenModal] = useState<string | null>(null);
@@ -86,9 +87,7 @@ function Dashboard() {
         {/* RIGTH PAINEL */}
         <RightContentWrapper>
           <RightPanelContainer>
-            <div style={{ width: '100%' }}>
-              conteudo
-            </div>
+             <RightPanel />
           </RightPanelContainer>
         </RightContentWrapper>
       </MainContent>
@@ -137,7 +136,7 @@ function Dashboard() {
         </SocialButtonsWrapper>
       </FooterContainer>
 
-      <Modal open={openModal === 'modal1'} onClose={handleClose} title="Quem Somos">
+      <Modal open={openModal === 'modal1'} onClose={handleClose} title="Projetos">
         <ModalContentWrapper>
           conteudo
         </ModalContentWrapper>

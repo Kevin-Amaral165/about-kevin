@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
 export const StyledCard = styled.div`
-  width: 680px;
-  height: 280px;
+  width: 100%;
+  height: 100%;
   background-color: #1e1e1e;
   margin-bottom: 20px;
-  border-radius: 8px !important;
-  cursor: pointer !important;
+  border-radius: 8px;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.2s ease-in-out;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(248, 239, 239, 0.3);
+  overflow: hidden;
 `;
 
 export const CardImageContainer = styled.div`
