@@ -241,6 +241,8 @@ export const Circles = styled.ul`
   overflow: hidden;
   margin: 0;
   padding: 0;
+  pointer-events: none;
+  z-index: 0;
 
   li {
     position: absolute;

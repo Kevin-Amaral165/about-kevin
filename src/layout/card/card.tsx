@@ -8,7 +8,12 @@ type CardProps = {
   onClick?: () => void;
 };
 
-const Card: React.FC<CardProps> = ({ imageSrc, altText = '', label, onClick }) => {
+const Card: React.FC<CardProps> = ({
+  imageSrc,
+  altText = '',
+  label,
+  onClick,
+}) => {
   return (
     <StyledCard onClick={onClick}>
       <CardImageContainer>
