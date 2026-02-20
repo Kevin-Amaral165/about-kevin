@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '../../../layout/card/card';
 import image1 from '../../../layout/image/mqz.jpg';
+import networkDashoboardImage from '../modals/images/dashboard_portfolio.png';
+import netwokLoginImage from '../modals/images/login_portfolio.png';
+import networkFormImage from '../modals/images/form_portfolio.png';
+import crusherImage from '../modals/images/crusher.jpg';
+import shawarmaImage from '../modals/images/shawarmaImage.png';
 
 interface ProjectsModalContentProps {
   selectedProject: string | null;
@@ -11,8 +16,30 @@ const ProjectsModalContent: React.FC<ProjectsModalContentProps> = ({
   selectedProject,
   onSelectProject,
 }) => {
+  const [currentImage, setCurrentImage] = useState(0);
 
-  // 🔹 VISÃO INICIAL → DRAWERS
+  const networkingImages = [
+    networkDashoboardImage,
+    netwokLoginImage,
+    networkFormImage,
+  ];
+
+  const nextImage = () => {
+    setCurrentImage((prev) =>
+      prev === networkingImages.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) =>
+      prev === 0 ? networkingImages.length - 1 : prev - 1
+    );
+  };
+
+  /* ========================
+     VISÃO INICIAL (CARDS)
+  ======================== */
+
   if (!selectedProject) {
     return (
       <div
@@ -25,87 +52,195 @@ const ProjectsModalContent: React.FC<ProjectsModalContentProps> = ({
         <Card
           imageSrc={image1}
           label="MQZ Engenharia"
-          altText="MQZ Engenharia"
           onClick={() => onSelectProject('mqz')}
         />
 
         <Card
-          imageSrc={image1}
+          imageSrc={networkDashoboardImage}
           label="Networking Dashboard"
-          altText="Networking Dashboard"
           onClick={() => onSelectProject('networking')}
         />
 
         <Card
-          imageSrc={image1}
+          imageSrc={shawarmaImage}
           label="Shawarma Delivery"
-          altText="Shawarma Delivery"
           onClick={() => onSelectProject('shawarma')}
         />
 
         <Card
-          imageSrc={image1}
-          label="Test"
-          altText="Test"
-          onClick={() => onSelectProject('test')}
+          imageSrc={crusherImage}
+          label="Monitoring System – Superior Industries"
+          onClick={() => onSelectProject('crusher')}
         />
       </div>
     );
   }
 
-  // 🔹 DETALHE DO PROJETO
+  /* ========================
+     DETALHE DO PROJETO
+  ======================== */
+
   return (
     <div>
-      {selectedProject === 'mqz' && (
-        <>
-          <h2>MQZ Engenharia</h2>
-          <img src={image1} alt="MQZ Engenharia" style={{ width: '100%', borderRadius: 8 }} />
-          <p>
-            Projeto institucional desenvolvido para empresa do ramo de engenharia,
-            com foco em apresentação de serviços e contato comercial.
-          </p>
-        </>
-      )}
+      {/* HEADER */}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 20,
+        }}
+      >
+        <h2 style={{ margin: 0 }}>
+          {selectedProject === 'networking'
+            ? 'Networking Dashboard'
+            : selectedProject === 'mqz'
+            ? 'MQZ Engenharia'
+            : selectedProject === 'shawarma'
+            ? 'Shawarma Delivery – Arabic Food Delivery Platform'
+            : selectedProject === 'crusher'
+            ? 'Monitoring System – Rolls & Crusher | Superior Industries'
+            : 'Projeto'}
+        </h2>
 
+        <button
+          onClick={() => onSelectProject(null)}
+          style={{
+            background: '#1677ff',
+            border: 'none',
+            color: 'white',
+            padding: '8px 16px',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontWeight: 500,
+          }}
+        >
+          ← Voltar
+        </button>
+      </div>
+
+      {/* ========================
+         NETWORKING (COM SLIDER)
+      ======================== */}
       {selectedProject === 'networking' && (
         <>
-          <h2>Networking Dashboard</h2>
-          <img src={image1} alt="Networking Dashboard" style={{ width: '100%', borderRadius: 8 }} />
-          <p>
-            Dashboard administrativo para controle de usuários, permissões
-            e visualização de métricas.
+          <div style={{ position: 'relative' }}>
+            <div
+              style={{
+                width: '100%',
+                height: '60vh',
+                maxHeight: '500px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                overflow: 'hidden',
+                background: '#111',
+                borderRadius: 8,
+              }}
+            >
+              <img
+                src={networkingImages[currentImage]}
+                alt="Networking"
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                  objectFit: 'contain',
+                  transition: '0.3s',
+                }}
+              />
+            </div>
+
+            <button
+              onClick={prevImage}
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: 10,
+                transform: 'translateY(-50%)',
+                background: 'rgba(0,0,0,0.6)',
+                color: 'white',
+                border: 'none',
+                padding: '8px 12px',
+                borderRadius: '50%',
+                cursor: 'pointer',
+              }}
+            >
+              ‹
+            </button>
+
+            <button
+              onClick={nextImage}
+              style={{
+                position: 'absolute',
+                top: '50%',
+                right: 10,
+                transform: 'translateY(-50%)',
+                background: 'rgba(0,0,0,0.6)',
+                color: 'white',
+                border: 'none',
+                padding: '8px 12px',
+                borderRadius: '50%',
+                cursor: 'pointer',
+              }}
+            >
+              ›
+            </button>
+          </div>
+
+          <p style={{ marginTop: 15 }}>
+            Dashboard administrativo completo com controle de usuários,
+            permissões, gráficos e monitoramento em tempo real.
           </p>
         </>
       )}
 
-      {selectedProject === 'shawarma' && (
+      {/* ========================
+         OUTROS PROJETOS
+      ======================== */}
+      {selectedProject !== 'networking' && (
         <>
-          <h2>Shawarma Delivery</h2>
-          <img src={image1} alt="Shawarma Delivery" style={{ width: '100%', borderRadius: 8 }} />
-          <p>
-            Sistema completo de delivery com pedidos em tempo real,
-            painel administrativo e controle de pedidos.
+          <div
+            style={{
+              width: '100%',
+              height: '60vh',
+              maxHeight: '500px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              overflow: 'hidden',
+              background: '#111',
+              borderRadius: 8,
+            }}
+          >
+            <img
+              src={
+                selectedProject === 'crusher'
+                  ? crusherImage
+                  : selectedProject === 'shawarma'
+                  ? shawarmaImage
+                  : image1
+              }
+              alt={selectedProject || 'project'}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'contain',
+              }}
+            />
+          </div>
+
+          <p style={{ marginTop: 15 }}>
+            {selectedProject === 'mqz' &&
+              'Projeto institucional desenvolvido para empresa do ramo de engenharia.'}
+
+            {selectedProject === 'shawarma' &&
+              'Plataforma web para delivery de comida árabe, desenvolvida para gerenciamento de pedidos, cardápio e experiência do cliente. O projeto encontra-se atualmente em fase de desenvolvimento e expansão de funcionalidades.'}
+
+            {selectedProject === 'crusher' &&
+              'Atuação no desenvolvimento do sistema web corporativo para monitoramento de rolos transportadores e equipamentos de britagem (crusher), aplicado em ambiente industrial na Superior Industries. O projeto envolveu construção de interfaces para visualização de dados operacionais, métricas de desempenho e acompanhamento técnico de equipamentos. Por questões de confidencialidade e direitos corporativos, não é possível divulgar detalhes técnicos ou acesso ao sistema.'}
           </p>
         </>
       )}
-
-      {selectedProject === 'test' && (
-        <>
-          <h2>Projeto Test</h2>
-          <img src={image1} alt="Projeto Test" style={{ width: '100%', borderRadius: 8 }} />
-          <p>
-            Projeto experimental focado em testes de arquitetura,
-            comunicação entre serviços e escalabilidade.
-          </p>
-        </>
-      )}
-
-      <button
-        style={{ marginTop: 20 }}
-        onClick={() => onSelectProject(null)}
-      >
-        ← Voltar para projetos
-      </button>
     </div>
   );
 };
