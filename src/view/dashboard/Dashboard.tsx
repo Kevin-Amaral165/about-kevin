@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Typography } from 'antd';
 
 // Layout
-import Navigation from '../../layout/navigation/Navigation';
-import Modal from '../../layout/modal/Modal';
+import Navigation from '../../layout/navigation/Navigation.tsx';
+import Modal from '../../layout/modal/Modal.tsx';
 
 // Styles
 import {
