@@ -32,6 +32,12 @@ import logo from '../../layout/image/foto1.jpeg';
 
 // Icons
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import {
+  CodeOutlined,
+  LaptopOutlined,
+  ApartmentOutlined,
+  RocketOutlined
+} from '@ant-design/icons';
 
 // Components
 import WhatsApp from '../../layout/button/WhatsApp';
@@ -184,11 +190,48 @@ function Dashboard() {
         onClose={handleClose}
         title="Sobre"
       >
-        <p>
-          Desenvolvedor Full Stack com foco em React, TypeScript e Node.js.
-          Experiência na construção de aplicações modernas, escaláveis
-          e orientadas a boas práticas.
-        </p>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 20,
+            lineHeight: 1.7,
+          }}
+        >
+          <div style={{ display: 'flex', gap: 12 }}>
+            <LaptopOutlined style={{ fontSize: 20, color: '#1f3c88', marginTop: 4 }} />
+            <p style={{ margin: 0, fontWeight: 600, color: '#1f3c88' }}>
+              Desenvolvedor Full Stack com formação em Tecnologia em Automação Industrial,
+              unindo base técnica em sistemas industriais com desenvolvimento moderno de aplicações web.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', gap: 12 }}>
+            <CodeOutlined style={{ fontSize: 20, color: '#1f3c88', marginTop: 4 }} />
+            <p style={{ margin: 0, fontWeight: 600, color: '#1f3c88' }}>
+              Experiência na construção de aplicações escaláveis utilizando
+              React, Next.js, TypeScript, Node.js e Python, com foco em boas práticas,
+              arquitetura organizada e performance.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', gap: 12 }}>
+            <ApartmentOutlined style={{ fontSize: 20, color: '#1f3c88', marginTop: 4 }} />
+            <p style={{ margin: 0, fontWeight: 600, color: '#1f3c88' }}>
+              Desenvolvimento de sistemas corporativos para ambiente industrial
+              e dashboards administrativos com controle de usuários,
+              métricas e autenticação.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', gap: 12 }}>
+            <RocketOutlined style={{ fontSize: 20, color: '#1f3c88', marginTop: 4 }} />
+            <p style={{ margin: 0, fontWeight: 600, color: '#1f3c88' }}>
+              Profissional focado em evolução constante, aplicando conceitos
+              de Clean Code e desenvolvimento orientado a produto.
+            </p>
+          </div>
+        </div>
       </Modal>
 
       {/* MODAL CONTATO */}
@@ -197,9 +240,32 @@ function Dashboard() {
         onClose={handleClose}
         title="Contato"
       >
-        <p>Email: kevin_ramos1@hotmail.com</p>
-        <p>Telefone: (19) 99212-8375</p>
-        <p>Localização: São Paulo - SP</p>
+        <div style={{ lineHeight: 1.8 }}>
+          <p style={{ fontWeight: 600, color: '#1f3c88' }}>
+            📧 Email: kevin_ramos1@hotmail.com
+          </p>
+
+          <p style={{ fontWeight: 600, color: '#1f3c88' }}>
+            📱 Telefone / WhatsApp: (19) 99212-8375
+          </p>
+
+          <p style={{ fontWeight: 600, color: '#1f3c88' }}>
+            📍 Localização: São Paulo - SP
+          </p>
+
+          <div
+            style={{
+              marginTop: 20,
+              display: 'flex',
+              gap: 20,
+              alignItems: 'center',
+            }}
+          >
+            <WhatsApp />
+            <Instagram />
+            <GitHub />
+          </div>
+        </div>
       </Modal>
     </DashboardWrapper>
   );
