@@ -1,9 +1,14 @@
+// Core
 import React from 'react';
+
+// Libraries
 import { FaWhatsapp } from 'react-icons/fa';
+
+// Layout
 import SocialButton from './Social';
 
-const WhatsAppButton: React.FC = () => {
-  const phoneNumber = '5519993590707';
+const WhatsApp: React.FC = () => {
+  const phoneNumber = '5519992128375';
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
 
   return (
@@ -16,4 +21,4 @@ const WhatsAppButton: React.FC = () => {
   );
 };
 
-export default WhatsAppButton;
+export default WhatsApp;

@@ -1,4 +1,7 @@
+// Core
 import React from 'react';
+
+// Styles
 import { StyledButton } from './Button.style';
 
 type ButtonCustomProps = {

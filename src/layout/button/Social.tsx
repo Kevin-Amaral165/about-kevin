@@ -1,4 +1,7 @@
+// Core
 import React from 'react';
+
+// Libraries
 import { SocialLink } from './Social.style';
 
 interface SocialButtonProps {

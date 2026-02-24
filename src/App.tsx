@@ -1,3 +1,4 @@
+// View
 import Dashboard from "./view/dashboard/Dashboard";
 
 function App() {
