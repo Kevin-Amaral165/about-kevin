@@ -4,7 +4,7 @@ import {
   ToolOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import casa1 from '../Layout/Logos/Images/MarcoseRenata/Marcos e Renata Cabreúva/Fotos da obra/obra (1).jpeg';
+const casa1 = 'https://via.placeholder.com/400x250?text=Casa+Ecologica';
 import type { JSX } from 'react';
 
 const { Title, Paragraph } = Typography;

@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import Navigation from '../../layout/navigation/Navigation';
 import Modal from '../../layout/modal/Modal';
+import LeftPanel from './leftPanel/LeftPanel';
+import RightPanel from '../rightPanel/RightPanel';
+
 import {
   HeaderContainer,
   LeftContainer,
@@ -23,6 +26,15 @@ import {
 import { FaMapMarkerAlt, FaPhoneAlt, FaClock } from 'react-icons/fa';
 import WhatsApp from '../../layout/button/WhatsApp';
 import Instagram from '../../layout/button/Instagram';
+
+const logo = 'https://via.placeholder.com/150?text=Logo';
+
+const menuItems = [
+  { key: 'modal1', label: 'Quem Somos' },
+  { key: 'modal2', label: 'Obras Realizadas' },
+  { key: 'modal3', label: 'Tijolos Ecológicos' },
+  { key: 'modal4', label: 'Contato' },
+];
 
 function Dashboard() {
   const [openModal, setOpenModal] = useState<string | null>(null);
@@ -58,14 +70,14 @@ function Dashboard() {
       <MainContent>
         {/* Texto */}
         <LeftContent>
-          conteudo
+          <LeftPanel />
         </LeftContent>
 
         {/* RIGTH PAINEL */}
         <RightContentWrapper>
           <RightPanelContainer>
             <div style={{ width: '100%' }}>
-              conteudo
+              <RightPanel />
             </div>
           </RightPanelContainer>
         </RightContentWrapper>
