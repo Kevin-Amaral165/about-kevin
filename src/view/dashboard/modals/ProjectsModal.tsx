@@ -112,7 +112,7 @@ const ProjectsModalContent: React.FC<ProjectsModalContentProps> = ({
             padding: '8px 16px',
             borderRadius: '6px',
             cursor: 'pointer',
-            fontWeight: 500,
+            fontWeight: 600,
           }}
         >
           ← Voltar
@@ -187,9 +187,35 @@ const ProjectsModalContent: React.FC<ProjectsModalContentProps> = ({
             </button>
           </div>
 
-          <p style={{ marginTop: 15 }}>
-            Dashboard administrativo completo com controle de usuários,
-            permissões, gráficos e monitoramento em tempo real.
+          <p
+            style={{
+              marginTop: 20,
+              fontWeight: 600,
+              color: '#1f3c88',
+              lineHeight: 1.7,
+            }}
+          >
+            Plataforma completa desenvolvida para conectar e organizar membros
+            de grupos de networking profissional. O sistema permite gestão de
+            participantes, comunicação interna, controle financeiro,
+            acompanhamento de performance e visualização de métricas
+            estratégicas através de dashboards administrativos em tempo real.
+            <br /><br />
+            <strong>Stack principal:</strong><br />
+            Frontend: React + Next.js + Ant Design + Tailwind + Jest<br />
+            Backend: Node.js (Express)<br />
+            Banco de Dados: PostgreSQL
+            <br /><br />
+
+            🔗 Acesse o repositório:
+                <a
+                  href="https://github.com/Kevin-Amaral165/network-project/tree/main/network-project/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginLeft: 8, color: '#1677ff' }}
+                >
+                  github.com/Kevin-Amaral165/network-project/tree/main/network-project/
+                </a>
           </p>
         </>
       )}
@@ -229,15 +255,39 @@ const ProjectsModalContent: React.FC<ProjectsModalContentProps> = ({
             />
           </div>
 
-          <p style={{ marginTop: 15 }}>
-            {selectedProject === 'mqz' &&
-              'Projeto institucional desenvolvido para empresa do ramo de engenharia.'}
+          <p
+            style={{
+              marginTop: 20,
+              fontWeight: 600,
+              color: '#1f3c88',
+              lineHeight: 1.7,
+            }}
+          >
+            {selectedProject === 'mqz' && (
+              <>
+                Website desenvolvido para a empresa MQZ Engenharia,
+                com foco em presença digital profissional,
+                apresentação estratégica de serviços e portfólio técnico.
+                O projeto priorizou performance, responsividade
+                e experiência moderna para o usuário.
+                <br /><br />
+                🔗 Acesse o site:
+                <a
+                  href="https://mqzengenharia.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginLeft: 8, color: '#1677ff' }}
+                >
+                  https://mqzengenharia.com.br/
+                </a>
+              </>
+            )}
 
             {selectedProject === 'shawarma' &&
-              'Plataforma web para delivery de comida árabe, desenvolvida para gerenciamento de pedidos, cardápio e experiência do cliente. O projeto encontra-se atualmente em fase de desenvolvimento e expansão de funcionalidades.'}
+              'Plataforma web para delivery de comida árabe, desenvolvida para gerenciamento de pedidos, cardápio digital e experiência otimizada do cliente. O projeto está em evolução contínua, com foco em escalabilidade e melhorias futuras.'}
 
             {selectedProject === 'crusher' &&
-              'Atuação no desenvolvimento do sistema web corporativo para monitoramento de rolos transportadores e equipamentos de britagem (crusher), aplicado em ambiente industrial na Superior Industries. O projeto envolveu construção de interfaces para visualização de dados operacionais, métricas de desempenho e acompanhamento técnico de equipamentos. Por questões de confidencialidade e direitos corporativos, não é possível divulgar detalhes técnicos ou acesso ao sistema.'}
+              'Atuação no desenvolvimento do sistema web corporativo para monitoramento de rolos transportadores e equipamentos de britagem (crusher) na Superior Industries. O projeto envolveu construção de interfaces para visualização de dados operacionais e métricas industriais. Por questões de confidencialidade corporativa, detalhes técnicos não podem ser divulgados.'}
           </p>
         </>
       )}

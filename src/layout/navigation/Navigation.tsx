@@ -11,14 +11,18 @@ interface NavigationProps {
   menuItems: MenuProps['items'];
 }
 
-const Navigation: React.FC<NavigationProps> = ({ onNavClick, selectedKey, menuItems }) => {
+const Navigation: React.FC<NavigationProps> = ({
+  onNavClick,
+  selectedKey,
+  menuItems,
+}) => {
   return (
     <NavContainer>
       <StyledMenu
         mode="horizontal"
         selectedKeys={selectedKey ? [selectedKey] : []}
         items={menuItems}
-        onClick={({ key }) => onNavClick(key)}
+        onClick={({ key }) => onNavClick(String(key))}
       />
     </NavContainer>
   );

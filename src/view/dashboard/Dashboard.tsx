@@ -1,6 +1,12 @@
+// Core
 import { useState } from 'react';
+import { Typography } from 'antd';
+
+// Layout
 import Navigation from '../../layout/navigation/Navigation';
 import Modal from '../../layout/modal/Modal';
+
+// Styles
 import {
   HeaderContainer,
   LeftContainer,
@@ -20,26 +26,33 @@ import {
   SocialButtonsWrapper,
   Circles,
 } from './Dashboard.style';
+
+// Assets
 import logo from '../../layout/image/foto1.jpeg';
+
+// Icons
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+
+// Components
 import WhatsApp from '../../layout/button/WhatsApp';
 import Instagram from '../../layout/button/Instagram';
-import { Typography } from 'antd';
 import GitHub from '../../layout/button/Github';
 import LeftPanel from './leftPanel/LeftPanel';
 import RightPanel from './rightPanel/RightPanel';
 import ProjectsModalContent from './modals/ProjectsModal';
 
+type ModalType = 'projects' | 'about' | 'contact' | null;
+
 function Dashboard() {
-  const [openModal, setOpenModal] = useState<string | null>(null);
+  const [openModal, setOpenModal] = useState<ModalType>(null);
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
-  const handleNavClick = (modalKey: string) => {
+  const handleNavClick = (key: string) => {
+    const modalKey = key as ModalType;
     setOpenModal(modalKey);
 
-    // Se clicar em Projetos pelo menu
-    if (modalKey === 'modal1') {
-      setSelectedProject(null); // abre mostrando os 4 drawers
+    if (modalKey === 'projects') {
+      setSelectedProject(null);
     }
   };
 
@@ -48,13 +61,14 @@ function Dashboard() {
   };
 
   const menuItems = [
-    { key: 'modal1', label: 'Projetos' },
-    { key: 'modal2', label: 'Sobre' },
-    { key: 'modal4', label: 'Contato' },
+    { key: 'projects', label: 'Projetos' },
+    { key: 'about', label: 'Sobre' },
+    { key: 'contact', label: 'Contato' },
   ];
 
   return (
     <DashboardWrapper>
+      {/* Background Animation */}
       <Circles>
         {Array.from({ length: 10 }).map((_, i) => (
           <li key={i}></li>
@@ -68,7 +82,11 @@ function Dashboard() {
             <LogoContainer>
               <img src={logo} alt="Kevin Amaral" />
             </LogoContainer>
-            <Typography.Title level={3} style={{ color: 'white', marginLeft: 70 }}>
+
+            <Typography.Title
+              level={3}
+              style={{ color: 'white', marginLeft: 40, marginBottom: 0 }}
+            >
               Kevin Amaral
             </Typography.Title>
           </div>
@@ -87,9 +105,9 @@ function Dashboard() {
       <MainContent>
         <LeftContent>
           <LeftPanel
-            onCardClick={(projectKey) => {
-              setSelectedProject(projectKey); // seleciona projeto
-              setOpenModal('modal1');         // abre modal Projetos
+            onCardClick={(projectKey: string) => {
+              setSelectedProject(projectKey);
+              setOpenModal('projects');
             }}
           />
         </LeftContent>
@@ -102,12 +120,12 @@ function Dashboard() {
       </MainContent>
 
       {/* FOOTER */}
-      <FooterContainer style={{ padding: '10px 20px' }}>
+      <FooterContainer>
         <FooterInfo>
           <h4>Kevin Amaral</h4>
           <p>
-            React, Next.js, TypeScript, JavaScript, Node.js, Python,
-            PostgreSQL, MongoDB, Styled Components, HTML, CSS.
+            React, Next.js, TypeScript, Node.js, Python,
+            PostgreSQL, MongoDB, Styled Components.
           </p>
         </FooterInfo>
 
@@ -115,7 +133,7 @@ function Dashboard() {
           <div>
             <ContactItem>
               <FaMapMarkerAlt size={16} />
-              <div>São Paulo</div>
+              <div>São Paulo - SP</div>
             </ContactItem>
 
             <ContactItem>
@@ -148,7 +166,7 @@ function Dashboard() {
 
       {/* MODAL PROJETOS */}
       <Modal
-        open={openModal === 'modal1'}
+        open={openModal === 'projects'}
         onClose={handleClose}
         title="Projetos"
       >
@@ -162,20 +180,26 @@ function Dashboard() {
 
       {/* MODAL SOBRE */}
       <Modal
-        open={openModal === 'modal2'}
+        open={openModal === 'about'}
         onClose={handleClose}
         title="Sobre"
       >
-        Conteúdo sobre você aqui.
+        <p>
+          Desenvolvedor Full Stack com foco em React, TypeScript e Node.js.
+          Experiência na construção de aplicações modernas, escaláveis
+          e orientadas a boas práticas.
+        </p>
       </Modal>
 
       {/* MODAL CONTATO */}
       <Modal
-        open={openModal === 'modal4'}
+        open={openModal === 'contact'}
         onClose={handleClose}
         title="Contato"
       >
-        Informações de contato aqui.
+        <p>Email: kevin_ramos1@hotmail.com</p>
+        <p>Telefone: (19) 99212-8375</p>
+        <p>Localização: São Paulo - SP</p>
       </Modal>
     </DashboardWrapper>
   );
